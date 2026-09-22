@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aula Virtual - Ruleta Dinámica</title>
+    <link rel="stylesheet" href="css/estilos.css" />
+  </head>
+  <body>
+    <header class="cabecera">
+      <h1>Aula Virtual - Ruleta Dinámica</h1>
+      <p>Ruleta aleatoria con sorteo de equipos</p>
+    </header>
+
+    <main class="contenedor-principal">
+      <section class="zona-izquierda">
+        <div class="fila-superior">
+          <div class="caja-respuesta">
+            <span id="respuestaSeleccionada" class="texto-respuesta"
+              >RESPUESTA</span
+            >
+          </div>
+          <div class="fila-botones-inicio">
+            <button id="botonIniciar" class="boton boton-azul">Iniciar</button>
+            <button id="botonReiniciar" class="boton boton-rojo" disabled>
+              Reiniciar
+            </button>
+          </div>
+        </div>
+
+        <div class="zona-ruleta">
+          <canvas id="lienzoRuleta" width="600" height="600"></canvas>
+          <div class="indicador-triangulo"></div>
+          <button class="boton-girar-central" id="botonCentral">
+            haz clic para girarlo
+          </button>
+        </div>
+      </section>
+
+      <section class="zona-derecha">
+        <div class="fila-agregar">
+          <input
+            type="text"
+            id="entradaRapida"
+            class="entrada-rapida"
+            placeholder="Escribe un elemento y presiona Agregar"
+            maxlength="60"
+          />
+          <button id="botonAgregar" class="boton-secundario boton-agregar">
+            + Agregar
+          </button>
+          <button id="botonVaciar" class="boton-secundario">Vaciar</button>
+        </div>
+
+        <textarea
+          id="entradaElementos"
+          class="area-texto"
+          spellcheck="false"
+        ></textarea>
+
+        <div class="fila-botones-edicion">
+          <button id="botonTitulo" class="boton-secundario">Título</button>
+          <button id="botonEditar" class="boton-secundario">Editar</button>
+          <button id="botonOcultar" class="boton-secundario">
+            esconder...
+          </button>
+        </div>
+
+        <div class="panel-atajos">
+          <div class="atajo"><kbd>SPACE</kbd><span>Gíralo</span></div>
+          <div class="atajo">
+            <kbd>S</kbd><span>Ocultar el elemento seleccionado</span>
+          </div>
+          <div class="atajo"><kbd>R</kbd><span>Reiniciar</span></div>
+          <div class="atajo"><kbd>E</kbd><span>Editar</span></div>
+          <div class="atajo"><kbd>F</kbd><span>Pantalla completa</span></div>
+        </div>
+      </section>
+    </main>
+
+    <div id="notificacion" class="notificacion"></div>
+
+    <script src="js/almacenamiento.js"></script>
+    <script src="js/ruleta.js"></script>
+    <script src="js/principal.js"></script>
+  </body>
+</html>

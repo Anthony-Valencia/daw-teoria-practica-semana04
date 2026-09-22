@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sorteo de Equipos</title>
+    <link rel="stylesheet" href="css/estilos.css" />
+  </head>
+  <body>
+    <header class="cabecera">
+      <h1>Crea equipos al azar a partir de una lista de nombres</h1>
+      <p>De forma automática y gratuita</p>
+    </header>
+
+    <!-- ============ PANTALLA 1: CONFIGURACIÓN ============ -->
+    <main id="pantallaConfiguracion" class="pantalla activa">
+      <section class="columna-izquierda">
+        <h2>1. Ingresa los participantes</h2>
+
+        <div class="contenedor-textarea">
+          <textarea
+            id="entradaParticipantes"
+            placeholder="Cada participante debe estar en una nueva línea"
+            maxlength="5000"
+          ></textarea>
+          <span class="contador" id="contadorParticipantes">0</span>
+        </div>
+
+        <p class="ayuda">
+          Agrega un * para indicar líderes de grupo. <strong>*Líder</strong>
+        </p>
+      </section>
+
+      <section class="columna-derecha">
+        <h2>2. Cómo dividir:</h2>
+
+        <div class="grupo-radios">
+          <label class="radio-opcion">
+            <input type="radio" name="modoDivision" value="equipos" checked />
+            <span>Cantidad de equipos</span>
+          </label>
+          <label class="radio-opcion">
+            <input type="radio" name="modoDivision" value="integrantes" />
+            <span>Participantes por equipo</span>
+          </label>
+        </div>
+
+        <select id="selectorCantidad" class="selector">
+          <option value="2">2 equipos</option>
+          <option value="3">3 equipos</option>
+          <option value="4">4 equipos</option>
+          <option value="5">5 equipos</option>
+          <option value="6">6 equipos</option>
+          <option value="7">7 equipos</option>
+          <option value="8">8 equipos</option>
+          <option value="9">9 equipos</option>
+          <option value="10">10 equipos</option>
+        </select>
+
+        <h2>3. Título</h2>
+
+        <input
+          type="text"
+          id="entradaTitulo"
+          class="entrada-texto"
+          placeholder="Copa del Mundo Qatar 2022"
+          maxlength="60"
+        />
+
+        <div class="acciones-configuracion">
+          <button id="botonLimpiar" class="boton boton-texto">Limpiar</button>
+          <button id="botonGenerar" class="boton boton-primario">
+            Generar equipos
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <!-- ============ PANTALLA 2: RESULTADOS ============ -->
+    <main id="pantallaResultados" class="pantalla">
+      <div class="encabezado-resultados">
+        <h1 id="tituloResultados">Equipos conformados</h1>
+        <button id="botonVolver" class="boton boton-texto">← Volver</button>
+      </div>
+
+      <div id="contenedorEquipos" class="contenedor-equipos"></div>
+
+      <div class="acciones-resultados">
+        <button id="botonDescargarJpg" class="boton boton-secundario">
+          <svg
+            class="icono"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+            <polyline points="7 10 12 15 17 10" />
+            <line x1="12" y1="15" x2="12" y2="3" />
+          </svg>
+          <span>Descargar JPG</span>
+        </button>
+
+        <button id="botonCopiarTodo" class="boton boton-secundario">
+          <svg
+            class="icono"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+          </svg>
+          <span>Copiar todo</span>
+        </button>
+
+        <button id="botonCopiarColumnas" class="boton boton-secundario">
+          <svg
+            class="icono"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <rect x="3" y="3" width="7" height="18" rx="1" />
+            <rect x="14" y="3" width="7" height="18" rx="1" />
+          </svg>
+          <span>Copiar en columnas</span>
+        </button>
+      </div>
+    </main>
+
+    <div id="notificacion" class="notificacion"></div>
+
+    <script src="js/almacenamiento.js"></script>
+    <script src="js/sorteo.js"></script>
+    <script src="js/interfaz.js"></script>
+    <script src="js/principal.js"></script>
+  </body>
+</html>
